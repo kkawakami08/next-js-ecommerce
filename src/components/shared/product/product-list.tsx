@@ -11,7 +11,7 @@ const ProductList = ({
   title = "Newest Arrivals",
   limit,
 }: ProductListProps) => {
-  const limitedData = limit ? data.products.slice(0, limit) : data.products;
+  const limitedData = limit ? data.slice(0, limit) : data.products;
 
   return (
     <div className="my-10">
