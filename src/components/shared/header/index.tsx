@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import ModeToggle from "./mode-toggle";
 import { APP_NAME } from "@/lib/constants";
 
 const Header = () => {
@@ -23,14 +24,15 @@ const Header = () => {
             </span>
           </Link>
         </div>
-        <div className="space-x-2">
+        <div className="flex items-center space-x-2">
+          <ModeToggle />
           <Button asChild variant={"ghost"}>
             <Link href={"/cart"}>
               <ShoppingCart className="" />
               Cart
             </Link>
           </Button>
-          <Button asChild variant={"ghost"}>
+          <Button asChild>
             <Link href={"/sign-in"}>
               <User className="" />
               Sign In
