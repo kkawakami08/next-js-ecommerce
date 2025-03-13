@@ -3,7 +3,9 @@ import { formatNumberWithDecimal } from "./utils";
 
 const currency = z
   .string()
+  //refine to match regex that matches format 49.90 (not 49.999 or 49.9 etc)
   .refine(
+    //.test() compares value with regex stuff to value returned from formatNumberWithDecimal()
     (value) => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
     "Price must have exactly two decimal places"
   );
