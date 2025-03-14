@@ -28,7 +28,7 @@ export const insertProductSchema = z.object({
 //schema for signing users in
 export const signInFormSchema = z.object({
   email: z.string().email("Invalid email address"),
-  password: z.string().min(6, "Must be at least 6 characters"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
 //schema for signing up users
@@ -36,8 +36,10 @@ export const signUpFormSchema = z
   .object({
     name: z.string().min(3, "Name must be at least 3 characters"),
     email: z.string().email("Invalid email address"),
-    password: z.string().min(6, "Must be at least 6 characters"),
-    confirmPassword: z.string().min(6, "Confirm password"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+    confirmPassword: z
+      .string()
+      .min(6, "Password must be at least 6 characters"),
   })
   //data = everything in schema (name,email,password,confirmPassword)
   //first param = function that returns true or false (checking if passwords match)
