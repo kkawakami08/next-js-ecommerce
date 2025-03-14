@@ -56,6 +56,7 @@ export const config = {
   callbacks: {
     //runs when session is accessed
     //trigger - reason why it ran (update, sign in, etc)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, user, trigger, token }: any) {
       //set the user id from the token
       session.user.id = token.sub;

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/sheet";
 
 import Link from "next/link";
-import { EllipsisVertical, ShoppingCart, User } from "lucide-react";
+import { EllipsisVertical, ShoppingCart } from "lucide-react";
 import UserButton from "./user-button";
 
 const Menu = () => {
