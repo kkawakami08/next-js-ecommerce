@@ -12,8 +12,12 @@ import { useActionState } from "react";
 
 //mostly for user feedback (disabled button while submitting)
 import { useFormStatus } from "react-dom";
+import { useSearchParams } from "next/navigation";
 
 const CredentialsSignInForm = () => {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
   //data - state action - signinwithcredentials
   //first parameter = action to be used when submitting form
   //second paremter = default state
@@ -33,6 +37,8 @@ const CredentialsSignInForm = () => {
 
   return (
     <form action={action}>
+      {/* have callbackurl as a hidden input to send along with the rest of the form */}
+      <input type="hidden" name="callbackUrl" value={callbackUrl} />
       <div className="space-y-6">
         <div>
           <Label htmlFor="email">Email</Label>

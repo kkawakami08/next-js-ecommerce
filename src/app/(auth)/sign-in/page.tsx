@@ -19,11 +19,20 @@ export const metadata: Metadata = {
   title: "Sign In",
 };
 
-const SignInPage = async () => {
+interface SignInPageProps {
+  searchParams: Promise<{
+    callbackUrl: string;
+  }>;
+}
+
+const SignInPage = async ({ searchParams }: SignInPageProps) => {
+  //callback url: if the user was in the process of purchasing but needs to login now, will have to login, but we want to redirect back to the page they were on before they had to sign in
+  const { callbackUrl } = await searchParams;
+
   const session = await auth();
 
   if (session) {
-    return redirect("/");
+    return redirect(callbackUrl || "/");
   }
 
   return (
