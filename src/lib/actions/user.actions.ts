@@ -64,7 +64,7 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
     });
 
     return {
-      status: true,
+      success: true,
       message: "User registered successfully",
     };
   } catch (error) {
@@ -76,7 +76,7 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
       throw error;
     }
     return {
-      status: false,
+      success: false,
       message: formatError(error),
     };
   }
